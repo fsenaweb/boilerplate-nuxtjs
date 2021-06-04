@@ -15,12 +15,10 @@
     "component": "yarn plop --plopfile generators/plopfile.js"
   },
   "lint-staged": {
-    "*.{js,vue}": "eslint"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "*.{js,vue}": [
+      "yarn lint --fix",
+      "yarn test --findRelatedTests --bail"
+    ]
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.1",
